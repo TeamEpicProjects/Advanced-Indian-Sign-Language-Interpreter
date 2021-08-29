@@ -31,11 +31,10 @@ if __name__ == "__main__":
     cap = cv2.VideoCapture(0)
     width = int(cap.get(3))
     height = int(cap.get(4))
-    black_screen = np.zeros((height, width, 3))
     while cap.isOpened():
         _, image = cap.read()
         image = cv2.flip(image, 1)
-
+        black_screen = np.zeros((height, width, 3))
         hand_detection, black_screen = detectHands(image, black_screen)
 
         cv2.imshow('Hands Recognition', hand_detection)
