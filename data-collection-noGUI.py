@@ -8,6 +8,8 @@ import time
 # Tried but obsolete so has been commented out
 
 
+# THIS CODE IS STILL WORK IN PROGRESS
+
 def nothing(x):
     pass
 
