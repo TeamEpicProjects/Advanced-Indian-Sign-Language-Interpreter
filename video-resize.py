@@ -2,8 +2,8 @@ import cv2
 import os
 
 print("file name is " + os.getcwd())
-Source = os.getcwd() + "\dataset\old"
-Destination = os.getcwd() + "\dataset\new"
+Source = os.getcwd() + r"\dataset\old"
+Destination = os.getcwd() + r"\dataset\new"
 
 
 def resizedVideos(Source, Destination):
@@ -21,19 +21,20 @@ def resizedVideos(Source, Destination):
 def Resized(path1, path2):
     cap = cv2.VideoCapture(path1)
     out = cv2.VideoWriter(path2, cv2.VideoWriter_fourcc(
-        'm', 'p', '4', 'v'), 10, (1280, 720))
-    i = 0
+        'm', 'p', '4', 'v'), 20, (320, 320))
     while(True):
         # Capture frame-by-frame
         ret, frame = cap.read()
         if ret == False:
             break
-        frame = cv2.resize(frame, (720, 720))
+        frame = cv2.resize(frame, (320, 320))
         # print(frame)
+        # print(path2)
         # Display the resulting frame
         out.write(frame)
         # When everything done, release the capture
     cap.release()
+    out.release()
     cv2.destroyAllWindows()
 
 
