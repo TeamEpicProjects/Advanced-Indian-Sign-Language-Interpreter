@@ -24,7 +24,7 @@ def convertVideos(Source, Destination):
 def convertvids(path1, path2):
     cap = cv2.VideoCapture(path1)
     out = cv2.VideoWriter(path2, cv2.VideoWriter_fourcc(
-        'm', 'p', '4', 'v'), 20, (320, 320))
+        'm', 'p', '4', 'v'), 20, (700, 500))
 
     with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
         while cap.isOpened():
@@ -32,7 +32,6 @@ def convertvids(path1, path2):
             if ret == False:
                 break
             image, results = pre.mediapipe_detection(frame, holistic)
-            cv2.imshow("results", image)
             # Draw landmarks
             pre.draw_styled_landmarks(image, results)
             out.write(image)

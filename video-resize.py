@@ -21,13 +21,13 @@ def resizedVideos(Source, Destination):
 def Resized(path1, path2):
     cap = cv2.VideoCapture(path1)
     out = cv2.VideoWriter(path2, cv2.VideoWriter_fourcc(
-        'm', 'p', '4', 'v'), 20, (320, 320))
+        'm', 'p', '4', 'v'), 20, (700, 500))
     while(True):
         # Capture frame-by-frame
         ret, frame = cap.read()
         if ret == False:
             break
-        frame = cv2.resize(frame, (320, 320))
+        frame = cv2.resize(frame, (700, 500))
         # print(frame)
         # print(path2)
         # Display the resulting frame
