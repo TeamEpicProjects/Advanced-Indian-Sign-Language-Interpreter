@@ -33,8 +33,11 @@ def convertvids(path1, path2):
                 break
             image, results = pre.mediapipe_detection(frame, holistic)
             # Draw landmarks
-            pre.draw_styled_landmarks(image, results)
-            out.write(image)
+            black = np.zeros((700, 500, 3), np.uint8)
+            print(black.shape)
+            pre.draw_styled_landmarks(black, results)
+            cv2.imshow("sample", black)
+            out.write(black)
         cap.release()
         out.release()
         cv2.destroyAllWindows()
