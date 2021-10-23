@@ -59,6 +59,7 @@ def draw_styled_landmarks(image, results):
                               mp_drawing.DrawingSpec(
                                   color=(245, 66, 230), thickness=2, circle_radius=2)
                               )
+    return image
 
 
 cap = cv2.VideoCapture(0)

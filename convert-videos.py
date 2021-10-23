@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 from matplotlib import pyplot as plt
+import copy
 import mediapipe as mp
 import PreprocessingFinal as pre
 
@@ -31,13 +32,21 @@ def convertvids(path1, path2):
             ret, frame = cap.read()
             if ret == False:
                 break
-            image, results = pre.mediapipe_detection(frame, holistic)
+            myframe, results = pre.mediapipe_detection(frame, holistic)
             # Draw landmarks
-            black = np.zeros((700, 500, 3), np.uint8)
-            print(black.shape)
-            pre.draw_styled_landmarks(black, results)
-            cv2.imshow("sample", black)
-            out.write(black)
+            holistics = copy.copy(myframe)
+
+            # black = np.zeros((700, 500, 3), np.uint8)
+            myframe = pre.draw_styled_landmarks(myframe, results)
+            final = holistics - myframe
+            # print(final.shape)
+            # print(final.flatten())
+            final_rgb = cv2.cvtColor(final, cv2.COLOR_HSV2RGB_FULL)
+            # final_gray = cv2.cvtColor(final_rgb, cv2.COLOR_RGB2GRAY)
+            ret, final_binary = cv2.threshold(
+                final_rgb, 1, 255, cv2.THRESH_BINARY)
+            # print(final_binary.shape)
+            out.write(final_rgb)
         cap.release()
         out.release()
         cv2.destroyAllWindows()
