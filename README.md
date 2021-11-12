@@ -9,5 +9,14 @@ Software Requirements: Pycharm/Jupyter notebooks, Anaconda
 
 Libraries: Keras, OpenCV, TensorFlow, NumPy, SciPy, pandas 
 
+## Instructions:
+Video Preprocessing:
+In order to check the image preprocessing part run the script PreprocessingFinal using the command python PreprocessingFinal.py
+Data Manipulation:
+In order to resize the captured videos run the video-resize script using the command python video-resize.py
+After resizing is done you can apply the preprocessing on that to generate the final result by running the convert-videos script using command python convert-videos.py
+Video Prediction:
+the prediction can be tested by running the script mainmodel using command python mainmodel.py
+
 ## Architecture diagram
 ![image](https://user-images.githubusercontent.com/43364258/141424707-b67cc198-4609-4731-839c-91aa4a4d4d31.png)
