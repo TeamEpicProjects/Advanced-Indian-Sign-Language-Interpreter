@@ -6,6 +6,7 @@ Create an automated engine able to recognize some ISL gestures. As per statistic
 ## Technology stack
 
 Software Requirements: Pycharm/Jupyter notebooks, Anaconda 
+
 Libraries: Keras, OpenCV, TensorFlow, NumPy, SciPy, pandas 
 
 ## Architecture diagram
